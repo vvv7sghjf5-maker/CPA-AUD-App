@@ -1,9 +1,1 @@
-{
-  "name": "CPA AUD Study App v7.7 QA",
-  "short_name": "AUD v7.7",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#111827",
-  "theme_color": "#111827",
-  "icons": []
-}
+{"name":"CPA AUD Study App v7.8 QA","short_name":"AUD v7.8","start_url":"./index.html","display":"standalone","background_color":"#111827","theme_color":"#111827","icons":[]}
