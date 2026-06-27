@@ -1,66 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>CPA AUD Study System v8.0</title>
-  <link rel="manifest" href="./manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f4fd8" />
+  <link rel="manifest" href="manifest.json" />
+  <title>CPA AUD Study App · Tetra v8</title>
   <style>
-    :root{
-      --navy:#0B3C5D;
-      --navy-2:#062B43;
-      --teal:#328CC1;
-      --teal-2:#1E88B9;
-      --gold:#D9B310;
-      --bg:#F4F7FA;
-      --surface:#FFFFFF;
-      --surface-2:#EEF4F8;
-      --text:#1F2937;
-      --muted:#64748B;
-      --line:#D8E2EA;
-      --ok:#1B8A5A;
-      --warn:#B7791F;
-      --bad:#C2410C;
-      --shadow:0 12px 32px rgba(11,60,93,.10);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,#EDF5FA 0%,var(--bg) 260px);color:var(--text);line-height:1.45}
-    header{background:linear-gradient(135deg,var(--navy) 0%,#0E527D 58%,var(--teal) 100%);color:#fff;padding:22px 16px 18px;box-shadow:var(--shadow);position:sticky;top:0;z-index:2}
-    .header-wrap{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
-    h1{margin:0;font-size:1.45rem;letter-spacing:.2px}.subtitle{opacity:.88;font-size:.92rem;margin-top:4px}.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:7px 10px;border-radius:999px;font-size:.86rem}
-    main{padding:18px;max-width:1180px;margin:auto}.muted{color:var(--muted)}
-    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:14px 0;box-shadow:0 6px 20px rgba(15,23,42,.05)}
-    .hero{background:linear-gradient(135deg,#FFFFFF 0%,#EEF7FC 100%);border-left:6px solid var(--gold)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0;align-items:center}
-    button,input,textarea,select{font:inherit;border-radius:12px;border:1px solid #C9D6E2;padding:10px 12px;background:#fff;color:var(--text)}
-    input,textarea,select{box-shadow:inset 0 1px 2px rgba(15,23,42,.04)}button{cursor:pointer;background:#fff;transition:.15s ease;border-color:#BDD0DF}button:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(11,60,93,.10)}
-    .primary{background:var(--navy);border-color:var(--navy);color:#fff}.ok{background:var(--ok);border-color:var(--ok);color:#fff}.warn{background:var(--warn);border-color:var(--warn);color:#fff}.danger{background:var(--bad);border-color:var(--bad);color:#fff}
-    #sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin-top:4px}
-    #sections button{min-height:84px;text-align:left;border-left:6px solid var(--teal);background:#fff;font-weight:700;white-space:normal;line-height:1.25}
-    #sections button .area-title{display:block;font-size:1rem;color:var(--navy)}#sections button .area-name{display:block;font-size:.88rem;color:var(--muted);font-weight:600;margin-top:4px}
-    #sections button.active{outline:3px solid rgba(50,140,193,.32);border-color:var(--teal);background:#F1F9FD}
-    nav.actions{background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 4px 16px rgba(15,23,42,.04)}nav button.active{background:var(--navy);border-color:var(--navy);color:#fff}
-    .pill{display:inline-block;background:#EEF6FB;border:1px solid #C9DCEB;color:var(--navy);border-radius:999px;padding:4px 9px;margin:3px;font-size:.86rem;font-weight:600}.hide{display:none}
-    .choice{display:block;width:100%;text-align:left;margin:8px 0;background:#fff}.correct{border-color:var(--ok);background:#EFFAF4}.wrong{border-color:var(--bad);background:#FFF4ED}
-    .bar{height:10px;background:#E4ECF2;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold))}.metric{font-size:2rem;font-weight:800;color:var(--navy)}
-    textarea{width:100%;min-height:110px}table{width:100%;border-collapse:collapse;background:#fff}td,th{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}.day{min-height:105px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px}.small{font-size:.85rem}.examItem{border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;background:#fff}
-    h2,h3,h4{color:var(--navy)}pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#F8FAFC;border:1px solid var(--line);border-radius:12px;padding:12px;overflow:auto}
-    @media (max-width:720px){main{padding:12px}.calendar{grid-template-columns:repeat(2,1fr)}#sections{grid-template-columns:1fr}.metric{font-size:1.55rem}}
+    :root{--bg:#f7f8fb;--card:#fff;--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--blue:#1f4fd8;--green:#15803d;--amber:#b45309;--red:#b91c1c;--soft:#eef2ff}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+    header{position:sticky;top:0;z-index:2;background:linear-gradient(135deg,#153ea8,#1f4fd8);color:#fff;padding:18px 16px 14px;box-shadow:0 2px 14px #0002}
+    header h1{font-size:22px;margin:0 0 6px} header p{margin:0;color:#dbeafe;font-size:13px}
+    nav{display:flex;gap:8px;overflow:auto;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:73px;z-index:2}
+    nav button,.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:10px 12px;font-weight:650;white-space:nowrap}
+    nav button.active,.btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)} .btn.warn{background:#fff7ed;border-color:#fed7aa;color:#9a3412}.btn.danger{background:#fef2f2;border-color:#fecaca;color:#991b1b}
+    main{padding:14px;max-width:1100px;margin:auto}.grid{display:grid;gap:12px}.cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 1px 8px #0000000a}.card h2{font-size:18px;margin:0 0 10px}.card h3{font-size:15px;margin:0 0 8px}.muted{color:var(--muted);font-size:13px}.big{font-size:30px;font-weight:800}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.space{justify-content:space-between}.section{display:none}.section.active{display:block}select,input,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:16px}label{font-weight:700;font-size:13px;display:block;margin:8px 0 5px}.pill{font-size:12px;border-radius:999px;padding:4px 8px;background:var(--soft);color:#1e3a8a;font-weight:700}.pill.green{background:#dcfce7;color:#166534}.pill.amber{background:#fef3c7;color:#92400e}.pill.red{background:#fee2e2;color:#991b1b}table{width:100%;border-collapse:collapse;font-size:14px}td,th{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}.answer{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}.answer.correct{border-color:#16a34a;background:#f0fdf4}.answer.wrong{border-color:#dc2626;background:#fef2f2}.hidden{display:none}.progress{height:8px;background:#e5e7eb;border-radius:999px;overflow:hidden}.bar{height:100%;background:var(--blue);width:0}.footer{padding:24px;text-align:center;color:var(--muted);font-size:12px}@media(min-width:800px){.two{grid-template-columns:1.3fr .7fr}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-wrap">
-      <div><h1>CPA AUD Study System</h1><div class="subtitle">Version 8.0 · Production-polish candidate · personal CPA review platform</div></div>
-      <div class="badge">AUD · Exam Mode · Calendar · Progress Tracking</div>
-    </div>
-  </header>
-  <main>
-    <div class="actions" id="sections"></div>
-    <nav class="actions" id="nav"></nav>
-    <section id="app"></section>
-  </main>
-  <script src="./script.js"></script>
+<header><h1>CPA AUD Study App · Tetra v8</h1><p>Personal-use edition · dynamic calendar · upgrade-safe progress · AICPA-style practice</p></header>
+<nav>
+  <button data-tab="dashboard" class="active">Dashboard</button><button data-tab="study">Study</button><button data-tab="exam">Exam Mode</button><button data-tab="calendar">Calendar</button><button data-tab="history">Session History</button><button data-tab="released">Released CPA Labels</button><button data-tab="settings">Backup / Settings</button>
+</nav>
+<main>
+<section id="dashboard" class="section active">
+  <div class="grid cards">
+    <div class="card"><h3>Overall Score</h3><div class="big" id="overallScore">—</div><p class="muted">Across answered questions</p></div>
+    <div class="card"><h3>Questions Answered</h3><div class="big" id="answeredCount">0</div><p class="muted">Progress preserved across upgrades</p></div>
+    <div class="card"><h3>Today</h3><div class="big" id="todayStatus">Blank</div><p class="muted">No work means no auto-filled day</p></div>
+    <div class="card"><h3>Last Session</h3><div id="lastSessionText" class="muted">No saved session yet.</div><button class="btn primary" id="continueBtn">Continue Last Session</button></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h2>Recommended Next Step</h2><p id="recommendation">Start with a 10-question mixed AUD block. The app will update your calendar only after real work is completed.</p></div>
+</section>
+<section id="study" class="section"><div class="grid two"><div class="card"><div class="row space"><h2>Practice Question</h2><span id="qMeta" class="pill">—</span></div><p id="qText"></p><div id="answers"></div><div id="explain" class="hidden"></div><div class="row"><button class="btn" id="prevQ">Previous</button><button class="btn primary" id="nextQ">Next Question</button></div></div><div class="card"><h2>Session Setup</h2><label>AUD Area</label><select id="areaSelect"><option value="Mixed">Mixed</option><option>Area I</option><option>Area II</option><option>Area III</option><option>Area IV</option></select><label>Mode</label><select id="modeSelect"><option>Practice</option><option>Released CPA Questions</option><option>Original AICPA-Style</option><option>Missed Questions</option></select><button class="btn primary" id="startSession">Start / Restart Session</button><button class="btn" id="finishSession">Finish & Log Session</button><p class="muted">Calendar updates only after a session is logged.</p></div></div></section>
+<section id="exam" class="section"><div class="card"><h2>CPA-Style Exam Mode</h2><p>Exam mode draws a mixed block using AUD blueprint-style weighting and a mix of easy, moderate, and difficult questions.</p><button class="btn primary" id="examStart">Start 10-Question Exam Block</button><div id="examNote" class="muted"></div></div></section>
+<section id="calendar" class="section"><div class="card"><div class="row space"><h2>Dynamic Study Calendar</h2><button class="btn" id="recalcCalendar">Recalculate Recommendations</button></div><p class="muted">Days remain blank unless work is logged. Behind/ahead adjustments are based on actual sessions.</p><table><thead><tr><th>Date</th><th>Status</th><th>Work Logged</th><th>Recommendation</th></tr></thead><tbody id="calendarBody"></tbody></table></div></section>
+<section id="history" class="section"><div class="card"><h2>Logged-In Session List</h2><p class="muted">This is the permanent study history used for “Continue Last Session” and calendar updates.</p><table><thead><tr><th>Date</th><th>Area</th><th>Mode</th><th>Questions</th><th>Score</th></tr></thead><tbody id="historyBody"></tbody></table></div></section>
+<section id="released" class="section"><div class="card"><h2>Released CPA Question Labeling</h2><p>Released questions should be marked clearly in the app:</p><p><span class="pill green">Released CPA Question – AICPA (Year)</span></p><p class="muted">For personal use, each released question should include the release year and source note. Original questions should be labeled “Original AICPA-Style Question.”</p><table><thead><tr><th>Question ID</th><th>Source Label</th><th>Year</th><th>Area</th></tr></thead><tbody id="releasedBody"></tbody></table></div></section>
+<section id="settings" class="section"><div class="grid two"><div class="card"><h2>Backup</h2><button class="btn primary" id="exportData">Export Progress JSON</button><label>Import Progress JSON</label><textarea id="importBox" rows="8" placeholder="Paste exported JSON here"></textarea><button class="btn" id="importData">Import Without Overwriting Scores</button></div><div class="card"><h2>Reset</h2><p class="muted">Use only if you intentionally want to clear local progress.</p><button class="btn danger" id="resetData">Reset Progress</button><h3>Migration Status</h3><p id="migrationStatus" class="muted"></p></div></div></section>
+</main><div class="footer">Tetra v8 · Local-only personal study data · No score overwrite on upgrade</div>
+<script>
+const APP_VERSION='tetra-v8';
+const STORAGE_KEY='cpaAudProgress';
+const today=()=>new Date().toISOString().slice(0,10);
+const seedQuestions=[
+{id:'AUD-R2025-001',area:'Area III',topic:'Audit Evidence',difficulty:'Moderate',sourceType:'Released CPA Question',source:'AICPA',year:'2025',q:'During an audit of a nonissuer, an auditor sends confirmations to selected customers for accounts receivable balances. Several customers do not respond to the initial request. Which of the following procedures would generally be most appropriate before concluding on the existence of the receivables?',a:['Project the nonresponses as misstatements and propose an adjustment.','Perform alternative procedures, such as examining subsequent cash receipts and supporting shipping documents.','Withdraw from the engagement because confirmation replies are required.','Issue a disclaimer of opinion due to a scope limitation.'],c:1,e:'For nonresponses, the auditor ordinarily performs alternative procedures. Subsequent cash receipts and shipping documents may provide evidence about existence. The other choices are premature or too severe.'},
+{id:'AUD-O-002',area:'Area II',topic:'Risk Assessment',difficulty:'Difficult',sourceType:'Original AICPA-Style Question',year:'Original',q:'An auditor is planning an audit of a manufacturer that implemented a new revenue system during the year. The system automatically records revenue when goods are scanned at the shipping dock. Which of the following matters would most likely increase the auditor\'s assessment of risk of material misstatement for revenue?',a:['The entity uses prenumbered shipping documents that are reconciled daily.','The system was implemented near year-end and user access rights were not reviewed after implementation.','The entity has a history of immaterial corrected misstatements in payroll.','The auditor plans to confirm a sample of year-end accounts receivable.'],c:1,e:'A new system implemented near year-end without access review increases IT and cutoff/occurrence risks. Strong reconciliations reduce risk, and planned audit procedures do not themselves increase inherent or control risk.'},
+{id:'AUD-O-003',area:'Area I',topic:'Independence',difficulty:'Moderate',sourceType:'Original AICPA-Style Question',year:'Original',q:'A covered member of an audit engagement team owns a material indirect financial interest in the audit client through a mutual fund. Which of the following statements best describes the likely effect on independence under the AICPA Code of Professional Conduct?',a:['Independence is impaired because any indirect financial interest is prohibited.','Independence is impaired if the indirect financial interest is material to the covered member.','Independence is not impaired because only direct interests are considered.','Independence is not impaired if the client is a nonissuer.'],c:1,e:'A material indirect financial interest impairs independence. Direct interests are generally prohibited regardless of materiality, but indirect interests are evaluated for materiality.'},
+{id:'AUD-O-004',area:'Area IV',topic:'Reporting',difficulty:'Difficult',sourceType:'Original AICPA-Style Question',year:'Original',q:'Management refuses to correct a material misstatement related to inventory valuation. The auditor concludes the misstatement is material but not pervasive to the financial statements. Which report modification is most appropriate?',a:['Unmodified opinion with an emphasis-of-matter paragraph.','Qualified opinion due to a material misstatement.','Adverse opinion due to a material and pervasive misstatement.','Disclaimer of opinion due to a scope limitation.'],c:1,e:'A material but not pervasive misstatement generally results in a qualified opinion. Adverse is for material and pervasive misstatements; disclaimer is for scope limitations.'},
+{id:'AUD-O-005',area:'Area III',topic:'Sampling',difficulty:'Easy',sourceType:'Original AICPA-Style Question',year:'Original',q:'In audit sampling for tests of controls, the risk of assessing control risk too low relates to the risk that the auditor will:',a:['Conclude controls are ineffective when they are effective.','Conclude controls are effective when they are not effective.','Reject a recorded account balance that is fairly stated.','Accept a recorded account balance that is materially misstated.'],c:1,e:'Assessing control risk too low means overreliance on controls, causing the auditor to conclude controls are effective when they are not.'}
+];
+function load(){let blank={version:APP_VERSION,answers:{},sessions:[],lastSession:null,calendar:{},settings:{created:new Date().toISOString()}};try{let raw=localStorage.getItem(STORAGE_KEY); if(!raw){localStorage.setItem(STORAGE_KEY,JSON.stringify(blank)); return blank;} let old=JSON.parse(raw); let merged={...blank,...old,version:APP_VERSION,answers:{...(old.answers||{})},sessions:[...(old.sessions||[])],calendar:{...(old.calendar||{})},settings:{...blank.settings,...(old.settings||{})}}; localStorage.setItem(STORAGE_KEY,JSON.stringify(merged)); return merged;}catch(e){return blank}}
+let state=load(); let currentIndex=0; let session={area:'Mixed',mode:'Practice',started:null,answered:0,correct:0,questionIds:[]};
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}
+function filtered(){let area=document.getElementById('areaSelect').value, mode=document.getElementById('modeSelect').value; return seedQuestions.filter(q=>(area==='Mixed'||q.area===area) && (mode==='Practice'||(mode==='Released CPA Questions'?q.sourceType==='Released CPA Question':mode==='Original AICPA-Style'?q.sourceType==='Original AICPA-Style Question':mode==='Missed Questions'?state.answers[q.id] && !state.answers[q.id].correct:true))) || seedQuestions;}
+function renderQ(){let list=filtered(); if(!list.length){document.getElementById('qText').textContent='No questions match this filter yet.'; document.getElementById('answers').innerHTML=''; return;} let q=list[currentIndex%list.length]; session.questionIds=[...new Set([...session.questionIds,q.id])]; state.lastSession={area:document.getElementById('areaSelect').value,mode:document.getElementById('modeSelect').value,index:currentIndex,questionId:q.id,updated:new Date().toISOString()}; save(); document.getElementById('qMeta').textContent=`${q.sourceType}${q.year==='Original'?'':' – '+q.year} · ${q.area} · ${q.difficulty}`; document.getElementById('qText').textContent=q.q; document.getElementById('answers').innerHTML=q.a.map((x,i)=>`<button class="answer" data-i="${i}">${String.fromCharCode(65+i)}. ${x}</button>`).join(''); document.getElementById('explain').className='hidden'; document.querySelectorAll('.answer').forEach(b=>b.onclick=()=>answer(q,Number(b.dataset.i)));}
+function answer(q,i){let correct=i===q.c; if(!state.answers[q.id]) session.answered++; if(correct) session.correct++; state.answers[q.id]={correct,choice:i,lastAnswered:new Date().toISOString(),area:q.area,sourceType:q.sourceType,year:q.year}; save(); document.querySelectorAll('.answer').forEach((b,idx)=>{if(idx===q.c)b.classList.add('correct'); if(idx===i&&idx!==q.c)b.classList.add('wrong');}); let ex=document.getElementById('explain'); ex.className='card'; ex.innerHTML=`<h3>${correct?'Correct':'Review Needed'}</h3><p>${q.e}</p>`; renderDash();}
+function finishSession(){if(session.answered===0){alert('No work logged. Today will remain blank.'); return;} let entry={date:today(),area:session.area,mode:session.mode,answered:session.answered,correct:session.correct,score:Math.round(session.correct/session.answered*100),questionIds:session.questionIds,ended:new Date().toISOString()}; state.sessions.push(entry); state.calendar[today()]={status:entry.answered>0?'Completed':'Blank',entry}; save(); session={area:document.getElementById('areaSelect').value,mode:document.getElementById('modeSelect').value,started:new Date().toISOString(),answered:0,correct:0,questionIds:[]}; renderAll(); alert('Session logged. Calendar updated based on actual work.');}
+function renderDash(){let vals=Object.values(state.answers); let correct=vals.filter(x=>x.correct).length; document.getElementById('overallScore').textContent=vals.length?Math.round(correct/vals.length*100)+'%':'—'; document.getElementById('answeredCount').textContent=vals.length; let t=state.calendar[today()]?.entry; document.getElementById('todayStatus').textContent=t?`${t.answered} Qs`:'Blank'; let ls=state.lastSession; document.getElementById('lastSessionText').textContent=ls?`${ls.area} · ${ls.mode} · ${new Date(ls.updated).toLocaleString()}`:'No saved session yet.'; let weak=['Area I','Area II','Area III','Area IV'].map(a=>{let aVals=vals.filter(x=>x.area===a); return {a,n:aVals.length,p:aVals.length?Math.round(aVals.filter(x=>x.correct).length/aVals.length*100):null}}).filter(x=>x.n).sort((a,b)=>a.p-b.p)[0]; document.getElementById('recommendation').textContent=weak?`Recommended: review ${weak.a}, currently ${weak.p}% across answered questions.`:'Start with a 10-question mixed AUD block.';}
+function renderHistory(){document.getElementById('historyBody').innerHTML=state.sessions.slice().reverse().map(s=>`<tr><td>${s.date}</td><td>${s.area}</td><td>${s.mode}</td><td>${s.answered}</td><td>${s.score}%</td></tr>`).join('')||'<tr><td colspan="5" class="muted">No logged sessions yet.</td></tr>';}
+function renderCalendar(){let rows=[]; for(let i=0;i<14;i++){let d=new Date(); d.setDate(d.getDate()+i); let iso=d.toISOString().slice(0,10); let c=state.calendar[iso]; rows.push(`<tr><td>${iso}</td><td>${c?'<span class="pill green">Completed</span>':'<span class="pill">Blank</span>'}</td><td>${c?`${c.entry.answered} Qs · ${c.entry.score}% · ${c.entry.area}`:''}</td><td>${c?'Review missed items from this block.':'Recommended block will appear after prior logged work; no auto-fill.'}</td></tr>`)} document.getElementById('calendarBody').innerHTML=rows.join('');}
+function renderReleased(){document.getElementById('releasedBody').innerHTML=seedQuestions.map(q=>`<tr><td>${q.id}</td><td>${q.sourceType==='Released CPA Question'?'Released CPA Question – AICPA':'Original AICPA-Style Question'}</td><td>${q.year}</td><td>${q.area}</td></tr>`).join('');}
+function renderAll(){renderDash();renderHistory();renderCalendar();renderReleased();renderQ();document.getElementById('migrationStatus').textContent=`Current app version: ${APP_VERSION}. Existing answers, sessions, and calendar records are merged, not overwritten.`;}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button,.section').forEach(x=>x.classList.remove('active')); b.classList.add('active'); document.getElementById(b.dataset.tab).classList.add('active'); renderAll();});
+document.getElementById('nextQ').onclick=()=>{currentIndex++;renderQ()}; document.getElementById('prevQ').onclick=()=>{currentIndex=Math.max(0,currentIndex-1);renderQ()};
+document.getElementById('startSession').onclick=()=>{session={area:areaSelect.value,mode:modeSelect.value,started:new Date().toISOString(),answered:0,correct:0,questionIds:[]}; currentIndex=0; renderQ();};
+document.getElementById('finishSession').onclick=finishSession; document.getElementById('continueBtn').onclick=()=>{if(state.lastSession){areaSelect.value=state.lastSession.area; modeSelect.value=state.lastSession.mode; currentIndex=state.lastSession.index||0; document.querySelector('[data-tab="study"]').click(); renderQ();}else alert('No last session saved yet.');};
+document.getElementById('examStart').onclick=()=>{areaSelect.value='Mixed'; modeSelect.value='Practice'; session={area:'Mixed',mode:'Exam Mode',started:new Date().toISOString(),answered:0,correct:0,questionIds:[]}; document.getElementById('examNote').textContent='Exam block started. Go to Study tab to answer questions, then Finish & Log Session.';};
+document.getElementById('recalcCalendar').onclick=renderCalendar;
+document.getElementById('exportData').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}); let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`cpa-aud-progress-${today()}.json`; a.click();};
+document.getElementById('importData').onclick=()=>{try{let incoming=JSON.parse(importBox.value); state={...state,...incoming,version:APP_VERSION,answers:{...(state.answers||{}),...(incoming.answers||{})},sessions:[...(state.sessions||[]),...(incoming.sessions||[])],calendar:{...(state.calendar||{}),...(incoming.calendar||{})}}; save(); renderAll(); alert('Imported and merged without clearing existing local scores.');}catch(e){alert('Import failed. Check JSON.')}};
+document.getElementById('resetData').onclick=()=>{if(confirm('Reset all CPA AUD progress on this device?')){localStorage.removeItem(STORAGE_KEY); state=load(); renderAll();}};
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});} renderAll();
+</script>
 </body>
 </html>
