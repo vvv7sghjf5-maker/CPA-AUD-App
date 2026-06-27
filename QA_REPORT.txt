@@ -1,23 +1,30 @@
-CPA AUD Study System v8.1.5 Regression-Tested Candidate
+CPA AUD Study System v8.1.6 Regression Candidate
 
-Changes from v8.1.4:
-- Rebuilt the MCQ bank to remove the repeated generic question stem pattern.
-- Preserved 80 MCQs, 20 per AUD area.
-- Added topic-specific simulation exhibit content.
-- Changed flashcard status badge from 'new' to the clearer non-clickable label 'Unreviewed'.
-- Updated app version, progress export filename, and service-worker cache to v8.1.5.
+Baseline: v8.1.5 testing findings.
 
-Regression checks performed:
+Fixes included:
+1. Removed hardcoded August 31 exam date. Fresh installs now show no exam date until user sets one. Imported or existing bad default of 2026-08-31 is cleared.
+2. Restored Calendar as a Study Calendar with exam-date setter, days remaining, 7-day study plan, and Daily Progress Log.
+3. Upgraded all eight simulation exhibit sets from placeholders to CPA-style TBS exhibits with realistic emails, schedules, confirmations, reports, memos, and audit documentation.
+4. Fixed Exam Mode TBS Open Exhibits call to use the working exhibit modal.
+5. Improved study quiz selection to avoid duplicate concept pairs in random samples where possible.
+6. Clarified iPad Backup & Restore instructions and updated progress export filename to aud-v8-1-6-progress.json.
+7. Updated service worker cache to aud-v8-1-6-cache to force refresh.
+
+Regression checks performed in code/static validation:
 PASS - ZIP contains index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
-PASS - APP_VERSION, header, service worker cache, and progress export filename set to 8.1.5.
-PASS - 80 unique MCQ IDs and 80 unique MCQ stems.
-PASS - 20 MCQs per AUD area.
-PASS - Every MCQ has 4 choices and answer key A-D.
-PASS - Removed prior repeated generic stem: 'During an AUD engagement...' no longer appears in MCQs.
-PASS - Exam mode full set references all 80 MCQs and all 8 TBS simulations.
-PASS - Simulation Open Exhibits function is present and used in both simulation mode and exam TBS mode.
-PASS - Flashcards render and status badge is informational, not a clickable control.
-PASS - Readings do not contain the prior generic 'If a fact pattern highlights...' example wording.
-PASS - Backup export/import/reset functions are present.
+PASS - Version references updated to 8.1.6.
+PASS - Service worker cache updated to aud-v8-1-6-cache.
+PASS - freshState() examDate is blank.
+PASS - Calendar function renders exam date controls and 7-day plan.
+PASS - Dashboard handles blank exam date without NaN.
+PASS - Eight simulation sets remain present, two per AUD area.
+PASS - Simulation exhibits include multiple CPA-style documents per TBS.
+PASS - Exam Mode TBS calls openExhibits().
+PASS - Backup export filename updated.
 
-User testing still recommended on iPad Safari/GitHub Pages after deployment because browser service-worker caching can differ from local static checks.
+Items still requiring iPad user acceptance testing:
+- Confirm Calendar displays and saves/clears exam date on Safari/iPad.
+- Confirm Open Exhibits in regular Simulation and Exam Mode.
+- Confirm Backup file appears in Safari Downloads/Files and imports.
+- Confirm MCQ repetition feels improved in normal study flow.
