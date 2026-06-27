@@ -1,1 +1,9 @@
-{"name":"CPA AUD Study App Tetra v8","short_name":"CPA AUD Tetra","start_url":"./index.html","display":"standalone","background_color":"#f7f8fb","theme_color":"#1f4fd8","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='36' fill='%231f4fd8'/%3E%3Ctext x='96' y='112' text-anchor='middle' font-size='56' fill='white' font-family='Arial'%3EAUD%3C/text%3E%3C/svg%3E","sizes":"192x192","type":"image/svg+xml"}]}
+{
+  "name": "CPA AUD Study System v8.1",
+  "short_name": "AUD v8.1",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F4F7FA",
+  "theme_color": "#0B3C5D",
+  "icons": []
+}

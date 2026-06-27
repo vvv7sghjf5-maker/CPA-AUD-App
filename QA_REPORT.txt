@@ -1,0 +1,15 @@
+CPA AUD Study System v8.1 Production Candidate QA Report
+
+PASS - script.js contains APP_VERSION 8.1
+PASS - question ids unique
+PASS - concept ids unique
+PASS - all answer keys A-D
+PASS - all 4 choices
+PASS - all four areas represented
+PASS - index references script.js and manifest.json
+PASS - service worker caches all core assets
+PASS - node --check script.js
+
+Node syntax check: PASS
+
+Scope note: revised package follows the CPA Auditing App Fixes discussion: no rebuild intent, controlled update, stronger original CPA-style MCQs, duplicate concept removal, question 1..N sample completion, PWA cache bump, and static QA checks. Released CPA-question labeling is supported by metadata, but no unverifiable released questions were claimed in this build.
