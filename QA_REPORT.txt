@@ -1,34 +1,28 @@
-CPA AUD Study System v8.1.7 Production Testing Candidate
+CPA AUD Study System v8.1.8 - Final Testing Candidate QA Report
 
-Baseline: v8.1.6 user testing findings.
+Fixes included in this build:
+1. Exam Mode menu now reliably displays Sample Test, Partial Exam, and Full Exam Set.
+2. Existing active exam state no longer hides the Exam Mode menu after a version update.
+3. Added Resume Active Exam and Discard Active Exam controls.
+4. MCQs remain first, followed by TBS simulations.
+5. Exhibit window reduced and positioned to the side on iPad/tablet layouts.
+6. Calendar and exam-date fixes preserved; no hardcoded August 31 date.
+7. Version/cache updated to v8.1.8.
 
-User-identified issues addressed:
-1. Exam Mode restored to three choices: Sample Test, Partial Exam, and Full Exam Set. MCQs remain first, followed by simulations.
-2. Exhibit window changed from all exhibits at once to an individual exhibit selector. Each exhibit opens separately in the document pane.
-3. Simulation exhibits expanded from condensed notes into document-style source evidence with purpose, key information, and audit relevance sections.
-4. Calendar and exam date fixes from v8.1.6 preserved. No hardcoded August 31 exam date.
-5. Generic repetitive MCQ pattern replaced with focused CPA-style scenario questions.
-6. Backup export filename updated to aud-v8-1-7-progress.json.
-7. Version and service worker cache updated to v8.1.7 / aud-v8-1-7-cache.
+Pre-release checks performed:
+PASS - Required package files present: index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
+PASS - App version string updated to 8.1.8.
+PASS - Service worker cache updated to aud-v8-1-8-cache.
+PASS - Exam Mode menu contains Sample Test, Partial Exam, and Full Exam Set.
+PASS - Active exam state includes Resume and Discard controls.
+PASS - Exam MCQ flow still advances to TBS phase after MCQs.
+PASS - Individual exhibit selector remains present.
+PASS - Exhibit window sizing CSS updated for non-centered tablet layout.
+PASS - Calendar hardcoded 2026-08-31 default not present in freshState.
 
-Static regression checks performed before release:
-PASS - ZIP contains index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
-PASS - Version references updated to 8.1.7.
-PASS - Service worker cache updated to aud-v8-1-7-cache.
-PASS - freshState() examDate remains blank.
-PASS - Calendar function retained.
-PASS - Sample Test, Partial Exam, and Full Exam Set labels present.
-PASS - Exam Mode starts MCQs before simulations.
-PASS - Eight simulation sets remain present, two per AUD area.
-PASS - Individual exhibit selector function showExhibit() present.
-PASS - Open Exhibits used in both Simulations and Exam Mode TBS.
-PASS - Question bank remains 80 MCQs with unique IDs and 20 per area.
-PASS - Generic “Which answer best applies” MCQ pattern removed.
-
-Recommended final user acceptance checks:
-- Open Calendar and confirm exam date can be saved and cleared.
-- Open Exam Mode and confirm Sample / Partial / Full options appear.
-- Start Sample Test and confirm MCQs appear first, then TBS.
-- Open a TBS and confirm individual exhibit buttons switch exhibits one at a time.
-- Run a short MCQ practice set and confirm questions no longer feel like repeated generic templates.
-- Export progress and locate aud-v8-1-7-progress.json in Safari Downloads / Files.
+Final UAT focus:
+1. Open Exam Mode and confirm the three exam options are visible before starting an exam.
+2. Start Sample Test and confirm MCQs appear first, then TBS.
+3. Return to Exam Mode during an active exam and confirm the menu plus Resume/Discard controls appear.
+4. Open a TBS exhibit and confirm the smaller side-positioned window is usable on iPad.
+5. Smoke-test Calendar, Readings, Flashcards, MCQs, Logs, Backup/Restore, and PWA/offline behavior.
