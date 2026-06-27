@@ -1,30 +1,34 @@
-CPA AUD Study System v8.1.6 Regression Candidate
+CPA AUD Study System v8.1.7 Production Testing Candidate
 
-Baseline: v8.1.5 testing findings.
+Baseline: v8.1.6 user testing findings.
 
-Fixes included:
-1. Removed hardcoded August 31 exam date. Fresh installs now show no exam date until user sets one. Imported or existing bad default of 2026-08-31 is cleared.
-2. Restored Calendar as a Study Calendar with exam-date setter, days remaining, 7-day study plan, and Daily Progress Log.
-3. Upgraded all eight simulation exhibit sets from placeholders to CPA-style TBS exhibits with realistic emails, schedules, confirmations, reports, memos, and audit documentation.
-4. Fixed Exam Mode TBS Open Exhibits call to use the working exhibit modal.
-5. Improved study quiz selection to avoid duplicate concept pairs in random samples where possible.
-6. Clarified iPad Backup & Restore instructions and updated progress export filename to aud-v8-1-6-progress.json.
-7. Updated service worker cache to aud-v8-1-6-cache to force refresh.
+User-identified issues addressed:
+1. Exam Mode restored to three choices: Sample Test, Partial Exam, and Full Exam Set. MCQs remain first, followed by simulations.
+2. Exhibit window changed from all exhibits at once to an individual exhibit selector. Each exhibit opens separately in the document pane.
+3. Simulation exhibits expanded from condensed notes into document-style source evidence with purpose, key information, and audit relevance sections.
+4. Calendar and exam date fixes from v8.1.6 preserved. No hardcoded August 31 exam date.
+5. Generic repetitive MCQ pattern replaced with focused CPA-style scenario questions.
+6. Backup export filename updated to aud-v8-1-7-progress.json.
+7. Version and service worker cache updated to v8.1.7 / aud-v8-1-7-cache.
 
-Regression checks performed in code/static validation:
+Static regression checks performed before release:
 PASS - ZIP contains index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
-PASS - Version references updated to 8.1.6.
-PASS - Service worker cache updated to aud-v8-1-6-cache.
-PASS - freshState() examDate is blank.
-PASS - Calendar function renders exam date controls and 7-day plan.
-PASS - Dashboard handles blank exam date without NaN.
+PASS - Version references updated to 8.1.7.
+PASS - Service worker cache updated to aud-v8-1-7-cache.
+PASS - freshState() examDate remains blank.
+PASS - Calendar function retained.
+PASS - Sample Test, Partial Exam, and Full Exam Set labels present.
+PASS - Exam Mode starts MCQs before simulations.
 PASS - Eight simulation sets remain present, two per AUD area.
-PASS - Simulation exhibits include multiple CPA-style documents per TBS.
-PASS - Exam Mode TBS calls openExhibits().
-PASS - Backup export filename updated.
+PASS - Individual exhibit selector function showExhibit() present.
+PASS - Open Exhibits used in both Simulations and Exam Mode TBS.
+PASS - Question bank remains 80 MCQs with unique IDs and 20 per area.
+PASS - Generic “Which answer best applies” MCQ pattern removed.
 
-Items still requiring iPad user acceptance testing:
-- Confirm Calendar displays and saves/clears exam date on Safari/iPad.
-- Confirm Open Exhibits in regular Simulation and Exam Mode.
-- Confirm Backup file appears in Safari Downloads/Files and imports.
-- Confirm MCQ repetition feels improved in normal study flow.
+Recommended final user acceptance checks:
+- Open Calendar and confirm exam date can be saved and cleared.
+- Open Exam Mode and confirm Sample / Partial / Full options appear.
+- Start Sample Test and confirm MCQs appear first, then TBS.
+- Open a TBS and confirm individual exhibit buttons switch exhibits one at a time.
+- Run a short MCQ practice set and confirm questions no longer feel like repeated generic templates.
+- Export progress and locate aud-v8-1-7-progress.json in Safari Downloads / Files.
