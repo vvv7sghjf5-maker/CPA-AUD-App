@@ -1,23 +1,23 @@
-CPA AUD Study System v8.1.2 Revised Candidate - QA Report
-Generated after latest user testing feedback
+CPA AUD Study System v8.1.5 Regression-Tested Candidate
 
-JavaScript syntax check: PASS
-All production files present: PASS
-Unique question IDs: PASS
-Every question has four choices: PASS
-Every answer key is A-D: PASS
-Every question has explanation: PASS
-Question metadata present: PASS
-Question bank count: 80 MCQs across 4 AUD areas
-Simulation set count: 8 TBS prompts across 4 AUD areas
-Flashcard deck count: 40 cards across 4 AUD areas
+Changes from v8.1.4:
+- Rebuilt the MCQ bank to remove the repeated generic question stem pattern.
+- Preserved 80 MCQs, 20 per AUD area.
+- Added topic-specific simulation exhibit content.
+- Changed flashcard status badge from 'new' to the clearer non-clickable label 'Unreviewed'.
+- Updated app version, progress export filename, and service-worker cache to v8.1.5.
 
-Latest testing fixes included:
-PASS - Exam Mode now includes a Full Exam Set button using all 80 MCQs and all 8 TBS prompts.
-PASS - Exam Mode flow keeps MCQs first, then opens simulations after MCQs are completed.
-PASS - Exam Mode hides MCQ explanations during the active exam and reports scores after submission.
-PASS - Flashcard backs were rewritten to include specific rule, example, and CPA trap text rather than generic non-answer wording.
-PASS - Service worker cache version updated to v8.1.2 with safer response caching and index fallback.
-PASS - Prior working items preserved: missed-question log, daily progress log, reset/system health, section navigation, simulations, backup/restore.
+Regression checks performed:
+PASS - ZIP contains index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
+PASS - APP_VERSION, header, service worker cache, and progress export filename set to 8.1.5.
+PASS - 80 unique MCQ IDs and 80 unique MCQ stems.
+PASS - 20 MCQs per AUD area.
+PASS - Every MCQ has 4 choices and answer key A-D.
+PASS - Removed prior repeated generic stem: 'During an AUD engagement...' no longer appears in MCQs.
+PASS - Exam mode full set references all 80 MCQs and all 8 TBS simulations.
+PASS - Simulation Open Exhibits function is present and used in both simulation mode and exam TBS mode.
+PASS - Flashcards render and status badge is informational, not a clickable control.
+PASS - Readings do not contain the prior generic 'If a fact pattern highlights...' example wording.
+PASS - Backup export/import/reset functions are present.
 
-Scope control note: No unrelated new features were added. This candidate addresses the latest testing feedback only.
+User testing still recommended on iPad Safari/GitHub Pages after deployment because browser service-worker caching can differ from local static checks.
