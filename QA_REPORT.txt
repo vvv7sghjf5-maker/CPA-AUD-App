@@ -1,15 +1,24 @@
-CPA AUD Study System v8.1 Production Candidate QA Report
+CPA AUD Study System v8.1.1 Stabilization Candidate - QA Report
+Generated QA checks before packaging
 
-PASS - script.js contains APP_VERSION 8.1
-PASS - question ids unique
-PASS - concept ids unique
-PASS - all answer keys A-D
-PASS - all 4 choices
-PASS - all four areas represented
-PASS - index references script.js and manifest.json
-PASS - service worker caches all core assets
-PASS - node --check script.js
+JavaScript syntax check: PASS
+All four production files present: PASS
+Unique question IDs: PASS
+Unique concept IDs: PASS
+Every question has four choices: PASS
+Every answer key is A-D: PASS
+Every question has explanation: PASS
+Question metadata present: PASS
+At least 20 MCQs per AUD area: PASS
+All four AUD areas represented: PASS
+Flashcard decks have at least 10 cards per area: PASS
+Simulations have at least 2 TBS per area: PASS
+Readings have at least 8 topics per area: PASS
+Dark-mode correct/wrong contrast CSS present: PASS
+Import Progress implemented: PASS
+Related missed-question practice implemented: PASS
+Area selector disabled on global modules: PASS
+Service worker cache updated: PASS
 
-Node syntax check: PASS
-
-Scope note: revised package follows the CPA Auditing App Fixes discussion: no rebuild intent, controlled update, stronger original CPA-style MCQs, duplicate concept removal, question 1..N sample completion, PWA cache bump, and static QA checks. Released CPA-question labeling is supported by metadata, but no unverifiable released questions were claimed in this build.
+Content note: question bank expanded to 80 original CPA-style questions (20 per area) with source/difficulty/type/area/topic metadata. No items are labeled as CPA Released unless verified source/year metadata is available.
+Defect fixes addressed: dark-mode answer contrast; flashcard Previous/Next; simulation exhibit/save/rubric flow; sample-size button disabling; area selector behavior on global modules; export plus import backup/restore; daily progress summary; missed-log related practice; QA tab repurposed to System Health.

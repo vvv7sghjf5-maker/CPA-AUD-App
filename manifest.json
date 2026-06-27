@@ -1,9 +1,8 @@
 {
-  "name": "CPA AUD Study System v8.1",
-  "short_name": "AUD v8.1",
+  "name": "CPA AUD Study System",
+  "short_name": "CPA AUD",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#F4F7FA",
-  "theme_color": "#0B3C5D",
-  "icons": []
+  "theme_color": "#0B3C5D"
 }
