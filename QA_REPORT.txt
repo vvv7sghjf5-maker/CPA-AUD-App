@@ -1,28 +1,22 @@
-CPA AUD Study System v8.1.8 - Final Testing Candidate QA Report
+CPA AUD Study System v8.1.9 - Final Testing Candidate QA Notes
 
-Fixes included in this build:
-1. Exam Mode menu now reliably displays Sample Test, Partial Exam, and Full Exam Set.
-2. Existing active exam state no longer hides the Exam Mode menu after a version update.
-3. Added Resume Active Exam and Discard Active Exam controls.
-4. MCQs remain first, followed by TBS simulations.
-5. Exhibit window reduced and positioned to the side on iPad/tablet layouts.
-6. Calendar and exam-date fixes preserved; no hardcoded August 31 date.
-7. Version/cache updated to v8.1.8.
+Fix applied after v8.1.8 final testing:
+- Simulation self-check rubric is hidden by default.
+- Show Rubric button toggles to Hide Rubric.
+- Same behavior applied to regular Simulations and Exam Mode TBS.
+- Version and service-worker cache updated to v8.1.9.
 
-Pre-release checks performed:
-PASS - Required package files present: index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
-PASS - App version string updated to 8.1.8.
-PASS - Service worker cache updated to aud-v8-1-8-cache.
-PASS - Exam Mode menu contains Sample Test, Partial Exam, and Full Exam Set.
-PASS - Active exam state includes Resume and Discard controls.
-PASS - Exam MCQ flow still advances to TBS phase after MCQs.
-PASS - Individual exhibit selector remains present.
-PASS - Exhibit window sizing CSS updated for non-centered tablet layout.
-PASS - Calendar hardcoded 2026-08-31 default not present in freshState.
+Due diligence checks completed at code/static level:
+- Package contains index.html, script.js, manifest.json, sw.js, and QA_REPORT.txt.
+- JavaScript syntax check passed.
+- Exam Mode menu includes Sample Test, Partial Exam, and Full Exam Set.
+- Exam Mode flow keeps MCQs first and TBSs second.
+- Individual exhibit selector functions are present.
+- Calendar function remains present and no hardcoded exam date is initialized.
+- Service worker cache name updated for refresh.
 
-Final UAT focus:
-1. Open Exam Mode and confirm the three exam options are visible before starting an exam.
-2. Start Sample Test and confirm MCQs appear first, then TBS.
-3. Return to Exam Mode during an active exam and confirm the menu plus Resume/Discard controls appear.
-4. Open a TBS exhibit and confirm the smaller side-positioned window is usable on iPad.
-5. Smoke-test Calendar, Readings, Flashcards, MCQs, Logs, Backup/Restore, and PWA/offline behavior.
+Final user testing focus:
+1. Open a simulation and confirm rubric is hidden until Show Rubric is tapped.
+2. Confirm Show Rubric changes to Hide Rubric and collapses on second tap.
+3. Repeat the same check during an Exam Mode TBS.
+4. Smoke-test Exam Mode, Calendar, Readings, Flashcards, MCQs, Logs, Backup/Restore, and PWA/offline behavior.
