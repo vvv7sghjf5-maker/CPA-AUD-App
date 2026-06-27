@@ -1,24 +1,23 @@
-CPA AUD Study System v8.1.1 Stabilization Candidate - QA Report
-Generated QA checks before packaging
+CPA AUD Study System v8.1.2 Revised Candidate - QA Report
+Generated after latest user testing feedback
 
 JavaScript syntax check: PASS
-All four production files present: PASS
+All production files present: PASS
 Unique question IDs: PASS
-Unique concept IDs: PASS
 Every question has four choices: PASS
 Every answer key is A-D: PASS
 Every question has explanation: PASS
 Question metadata present: PASS
-At least 20 MCQs per AUD area: PASS
-All four AUD areas represented: PASS
-Flashcard decks have at least 10 cards per area: PASS
-Simulations have at least 2 TBS per area: PASS
-Readings have at least 8 topics per area: PASS
-Dark-mode correct/wrong contrast CSS present: PASS
-Import Progress implemented: PASS
-Related missed-question practice implemented: PASS
-Area selector disabled on global modules: PASS
-Service worker cache updated: PASS
+Question bank count: 80 MCQs across 4 AUD areas
+Simulation set count: 8 TBS prompts across 4 AUD areas
+Flashcard deck count: 40 cards across 4 AUD areas
 
-Content note: question bank expanded to 80 original CPA-style questions (20 per area) with source/difficulty/type/area/topic metadata. No items are labeled as CPA Released unless verified source/year metadata is available.
-Defect fixes addressed: dark-mode answer contrast; flashcard Previous/Next; simulation exhibit/save/rubric flow; sample-size button disabling; area selector behavior on global modules; export plus import backup/restore; daily progress summary; missed-log related practice; QA tab repurposed to System Health.
+Latest testing fixes included:
+PASS - Exam Mode now includes a Full Exam Set button using all 80 MCQs and all 8 TBS prompts.
+PASS - Exam Mode flow keeps MCQs first, then opens simulations after MCQs are completed.
+PASS - Exam Mode hides MCQ explanations during the active exam and reports scores after submission.
+PASS - Flashcard backs were rewritten to include specific rule, example, and CPA trap text rather than generic non-answer wording.
+PASS - Service worker cache version updated to v8.1.2 with safer response caching and index fallback.
+PASS - Prior working items preserved: missed-question log, daily progress log, reset/system health, section navigation, simulations, backup/restore.
+
+Scope control note: No unrelated new features were added. This candidate addresses the latest testing feedback only.
