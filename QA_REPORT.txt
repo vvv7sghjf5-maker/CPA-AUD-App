@@ -1,28 +1,27 @@
-CPA AUD Study System v8.2.4 Final Testing Candidate QA Report
+CPA AUD Study System v8.2.5 Final Testing Candidate QA Report
 Generated: 2026-06-28
 
-Baseline files used:
-- v8.1.9 Final Testing Candidate: stable source-of-truth reference.
-- v8.2.3 Regression & Content Candidate: latest tested build and content baseline.
+Baseline used:
+- v8.2.4 Final Testing Candidate supplied by user as the latest tested file.
+- v8.1.9 remains the stable historical reference for regression protection.
 
-User-reported v8.2.3 issues addressed:
-- Replaced generic TBS self-check items with simulation-specific rubric requirements.
-- Strengthened TBS prompts and required tasks to read more like CPA-style simulations.
-- Added estimated TBS self-check scoring based on completed rubric items.
-- Enhanced the final Exam Mode report so missed MCQs display immediately after submission with the user's answer, correct answer, choices, and explanation.
-- Preserved v8.2.3 fixes for Exam Mode answer recording, answer highlighting, locked TBS visibility, and non-blocking exhibit panels.
+User-reported v8.2.4 issues addressed:
+- Corrected Full Exam Set from 224 MCQs to 78 MCQs.
+- Set Full Exam Set to 78 MCQs + 7 TBSs to mirror CPA-style AUD exam practice.
+- Rewrote the front-facing TBS prompts into CPA-style engagement scenarios with company context, auditor role, relevant facts, and exhibit-based requirements.
+- Preserved existing working items from v8.2.4: exam answer recording/highlighting, locked TBS visibility, non-blocking exhibits, TBS rubric scoring, final report missed-question review, calendar persistence, missed log, flashcards, MCQs, dashboard, and backup/restore.
 
-Regression checks performed:
-- ZIP contains index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
+Due diligence checks completed:
+- ZIP contains index.html, script.js, manifest.json, sw.js, and QA_REPORT.txt.
 - JavaScript syntax check passed with node --check.
-- Data integrity check passed: unique question IDs, four choices per MCQ, A-D answer keys, metadata present, simulations with exhibits/tasks/specific rubrics.
-- Version references updated to v8.2.4, including title, subtitle, service-worker cache, and export filename.
-- Final report review section was inspected in code path for missed MCQ display.
-- TBS rubrics were reviewed for specificity by simulation area and topic.
+- Data integrity check passed: unique MCQ IDs, four choices per MCQ, valid A-D answer keys, MCQ metadata present, simulations include prompts, exhibits, tasks, and rubrics.
+- Confirmed Full Exam Set display and startExam parameters use 78 MCQs + 7 TBSs.
+- Confirmed all simulation prompts no longer use the generic "You are completing a CPA-style task-based simulation" opening.
+- Confirmed version references updated to v8.2.5 in index.html and script.js.
+- ZIP validation passed.
 
-Testing focus for user:
-1. Exam Mode: complete sample test and confirm missed MCQs appear on the final report.
-2. Simulations: review Show Rubric content and confirm it is specific rather than generic.
-3. TBS scoring: check rubric boxes, save response, and confirm estimated score appears.
-4. Exhibits: confirm exhibit panel remains non-blocking and response area remains usable.
-5. Regression spot checks: calendar persistence, missed log, flashcards, MCQs, answer colors, dashboard, backup/restore, and iPad Safari/PWA behavior.
+Final testing focus:
+1. Exam Mode menu: confirm Full Exam Set displays 78 MCQs + 7 TBSs.
+2. Simulations: confirm front-facing prompts now read like CPA-style audit scenarios rather than generic study prompts.
+3. Complete a Sample Test: confirm MCQ answer selection, scoring, TBS unlock, TBS submit, and final missed-question review.
+4. Spot-check regression items: exhibits remain non-blocking, rubric show/hide works, calendar persists, missed log captures incorrect MCQs, answer colors remain readable, flashcards and MCQs load, backup/restore opens.
