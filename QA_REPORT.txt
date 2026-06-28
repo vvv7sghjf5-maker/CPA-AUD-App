@@ -1,19 +1,22 @@
-CPA AUD Study System v8.2.0 Content Test Candidate - QA Report
+CPA AUD Study System v8.1.9 - Final Testing Candidate QA Notes
 
-Content/logic changes:
-PASS - MCQ pool expanded to 240 original CPA-style questions (60 per AUD area).
-PASS - TBS pool expanded to 48 simulations (12 per AUD area).
-PASS - Readings expanded to 40 topic-specific reading cards.
-PASS - Non-repeat MCQ rotation implemented: new quiz blocks pull never-seen questions first.
-PASS - Manual Reset Question History button added by area.
-PASS - Rubrics remain hidden by default and toggle Show/Hide.
-PASS - Version/cache updated to v8.2.0.
-PASS - Export filename updated to aud-v8-2-0-progress.json.
+Fix applied after v8.1.8 final testing:
+- Simulation self-check rubric is hidden by default.
+- Show Rubric button toggles to Hide Rubric.
+- Same behavior applied to regular Simulations and Exam Mode TBS.
+- Version and service-worker cache updated to v8.1.9.
 
-Testing focus:
-1. Start a 20-question block in one AUD area and answer/end it.
-2. Start a second 20-question block in the same area.
-3. Confirm the second block is a new set until the 60-question area pool is exhausted.
-4. Confirm Reset Question History allows repeats only after intentional reset.
-5. Confirm readings are more specific than the prior generic key-rule cards.
-6. Confirm simulation rubrics are hidden until Show Rubric is tapped.
+Due diligence checks completed at code/static level:
+- Package contains index.html, script.js, manifest.json, sw.js, and QA_REPORT.txt.
+- JavaScript syntax check passed.
+- Exam Mode menu includes Sample Test, Partial Exam, and Full Exam Set.
+- Exam Mode flow keeps MCQs first and TBSs second.
+- Individual exhibit selector functions are present.
+- Calendar function remains present and no hardcoded exam date is initialized.
+- Service worker cache name updated for refresh.
+
+Final user testing focus:
+1. Open a simulation and confirm rubric is hidden until Show Rubric is tapped.
+2. Confirm Show Rubric changes to Hide Rubric and collapses on second tap.
+3. Repeat the same check during an Exam Mode TBS.
+4. Smoke-test Exam Mode, Calendar, Readings, Flashcards, MCQs, Logs, Backup/Restore, and PWA/offline behavior.
