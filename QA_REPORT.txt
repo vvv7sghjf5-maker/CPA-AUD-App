@@ -1,22 +1,31 @@
-CPA AUD Study System v8.1.9 - Final Testing Candidate QA Notes
+CPA AUD Study System v8.2.2 Production Candidate QA Report
+Generated: 2026-06-28T04:08:24
 
-Fix applied after v8.1.8 final testing:
-- Simulation self-check rubric is hidden by default.
-- Show Rubric button toggles to Hide Rubric.
-- Same behavior applied to regular Simulations and Exam Mode TBS.
-- Version and service-worker cache updated to v8.1.9.
+Baseline: v8.1.9 Final Testing Candidate provided by user.
+Build approach: delta update from stable baseline; no rebuild from scratch.
 
-Due diligence checks completed at code/static level:
-- Package contains index.html, script.js, manifest.json, sw.js, and QA_REPORT.txt.
+Changes applied after v8.1.9:
+- Expanded Key Rules readings with specific AUD rules, traps, and exam examples.
+- Added 48 original CPA-style MCQs across all four AUD areas.
+- Added 4 simulations, one per AUD area, with document-style exhibits.
+- Added non-repeating MCQ rotation until the area pool is exhausted.
+- Exam Mode now shows locked TBS list before MCQs are completed.
+- Self-check rubric remains hidden by default and toggles Show/Hide.
+- Missed Log now shows choices, last answer, correct answer, explanation, retry, mark reviewed, and remove actions.
+- Calendar save no longer clears an existing date when the input is blank; Clear is explicit.
+- Answer colors use stronger readable contrast in light/dark mode.
+
+Regression checks performed:
+- ZIP contains index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
 - JavaScript syntax check passed.
-- Exam Mode menu includes Sample Test, Partial Exam, and Full Exam Set.
-- Exam Mode flow keeps MCQs first and TBSs second.
-- Individual exhibit selector functions are present.
-- Calendar function remains present and no hardcoded exam date is initialized.
-- Service worker cache name updated for refresh.
+- Parsed data check passed: unique question IDs, 4 answer choices, A-D answer keys, simulations with exhibits/tasks/rubrics.
+- Question count: 128 MCQs. Simulation count: 12 TBSs.
+- Area minimums: ethics: 32, risk: 32, evidence: 32, reporting: 32.
 
-Final user testing focus:
-1. Open a simulation and confirm rubric is hidden until Show Rubric is tapped.
-2. Confirm Show Rubric changes to Hide Rubric and collapses on second tap.
-3. Repeat the same check during an Exam Mode TBS.
-4. Smoke-test Exam Mode, Calendar, Readings, Flashcards, MCQs, Logs, Backup/Restore, and PWA/offline behavior.
+User testing focus:
+1. Take 20 MCQs twice in the same area and confirm the second block is new until exhaustion.
+2. Open simulations and confirm exhibits open as document windows.
+3. Confirm rubric is hidden until Show Rubric and can be hidden again.
+4. In Exam Mode, confirm TBS titles are visible but locked during MCQs.
+5. Confirm missed log formatting and actions.
+6. Confirm saved exam date is preserved unless Clear is selected.
