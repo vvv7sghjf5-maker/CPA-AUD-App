@@ -1,34 +1,28 @@
-CPA AUD Study System v8.2.3 Regression & Content Candidate QA Report
+CPA AUD Study System v8.2.4 Final Testing Candidate QA Report
 Generated: 2026-06-28
 
 Baseline files used:
 - v8.1.9 Final Testing Candidate: stable source-of-truth reference.
-- v8.2.2 Production Candidate: latest tested build and content baseline.
+- v8.2.3 Regression & Content Candidate: latest tested build and content baseline.
 
-User-reported v8.2.2 defects addressed:
-- Exam Mode answer selection now visibly highlights the selected option.
-- Exam Mode stores each selected response in the active exam session.
-- Exam Mode blocks progression until an answer is selected.
-- Exam final report uses recorded exam-session responses for score and response count.
-- TBS exhibits now open as a floating non-blocking panel so the response box remains usable.
-
-Content additions in this build:
-- Added additional original CPA-style MCQs across all four AUD areas.
-- Added additional flashcards across all four AUD areas.
-- Preserved the v8.2.2 expanded readings, simulations, locked Exam Mode TBS preview, missed-log layout, calendar persistence, and answer-color improvements.
+User-reported v8.2.3 issues addressed:
+- Replaced generic TBS self-check items with simulation-specific rubric requirements.
+- Strengthened TBS prompts and required tasks to read more like CPA-style simulations.
+- Added estimated TBS self-check scoring based on completed rubric items.
+- Enhanced the final Exam Mode report so missed MCQs display immediately after submission with the user's answer, correct answer, choices, and explanation.
+- Preserved v8.2.3 fixes for Exam Mode answer recording, answer highlighting, locked TBS visibility, and non-blocking exhibit panels.
 
 Regression checks performed:
 - ZIP contains index.html, script.js, manifest.json, sw.js, QA_REPORT.txt.
 - JavaScript syntax check passed with node --check.
-- Runtime smoke test passed with mocked browser storage/DOM.
-- Exam Mode smoke test passed: start exam, select answer, record response, show selection status, advance to next question only after answer.
-- Data integrity check passed: unique question IDs, four choices per MCQ, A-D answer keys, metadata present, simulations with exhibits/tasks/rubrics.
-- Content count after expansion: 224 MCQs, 72 flashcards, 12 TBSs.
-- Area MCQ counts: 56 per AUD area.
+- Data integrity check passed: unique question IDs, four choices per MCQ, A-D answer keys, metadata present, simulations with exhibits/tasks/specific rubrics.
+- Version references updated to v8.2.4, including title, subtitle, service-worker cache, and export filename.
+- Final report review section was inspected in code path for missed MCQ display.
+- TBS rubrics were reviewed for specificity by simulation area and topic.
 
 Testing focus for user:
-1. Exam Mode: confirm each MCQ highlights after selection, records answer, and does not advance without an answer.
-2. Exam Mode: complete MCQs and confirm TBS section unlocks and final score shows recorded responses.
-3. TBS: open exhibits and confirm you can still type in the response box while the exhibit panel remains open.
-4. Flashcards and MCQs: confirm larger content population and reduced repetition.
-5. Regression spot checks: calendar persistence, missed log, simulations, rubric show/hide, answer colors, dashboard, backup/restore, and iPad Safari/PWA behavior.
+1. Exam Mode: complete sample test and confirm missed MCQs appear on the final report.
+2. Simulations: review Show Rubric content and confirm it is specific rather than generic.
+3. TBS scoring: check rubric boxes, save response, and confirm estimated score appears.
+4. Exhibits: confirm exhibit panel remains non-blocking and response area remains usable.
+5. Regression spot checks: calendar persistence, missed log, flashcards, MCQs, answer colors, dashboard, backup/restore, and iPad Safari/PWA behavior.
